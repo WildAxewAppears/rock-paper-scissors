@@ -99,7 +99,26 @@ buttons.addEventListener("click", playRound)
                 computer.textContent = `Computer : ${computerScore} `
             }
         }
-    
+
+        if (humanScore >= 5) {
+            setTimeout(() => {
+                alert("hai vinto");
+                humanScore = 0;
+                computerScore = 0;
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
+            }, 10);
+        } 
+        
+        else if (computerScore >= 5) {
+            setTimeout(() => {
+                alert("hai perso");
+                humanScore = 0;
+                computerScore = 0;
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
+            }, 10);
+        }
     }
 
 
