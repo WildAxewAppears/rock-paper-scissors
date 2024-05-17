@@ -1,11 +1,14 @@
+const human = document.querySelector("#human");
+const computer = document.querySelector("#computer")
+const buttons = document.querySelector(".buttons")
+const outcome = document.querySelector("#outcome")
 
+let humanScore = 0
+let computerScore = 0
 
-
-
-
-
-  
-    function playRound () {
+buttons.addEventListener("click", playRound)
+    
+    function playRound (event) {
 
         function getComputerChoice() {
             let computerChoice = Math.floor(Math.random() * 3);
@@ -21,14 +24,9 @@
         }
         
         function getHumanChoice() {
-            let humanChoice = prompt("Enter Rock, Paper or Scissors to play!").toLowerCase();
-
-            if (humanChoice !== "rock"  && humanChoice !== "paper"  && humanChoice !== "scissors") {
-                alert("c'mon be serious...")
-                return getHumanChoice()
-            }
-            else
-            return humanChoice
+            let target = event.target;
+            let humanChoice = target.id;
+            return humanChoice;
         }
     
         const humanSelection = getHumanChoice()
@@ -37,55 +35,72 @@
         
         if (humanSelection == "rock") {
             if (computerSelection == "rock") {
-                alert("You Both played Rock, you draw!")
+                outcome.textContent = "You Both played Rock, you draw!"
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
             }
             else if (computerSelection == "paper") {
-                alert("Unlucky Rock loses aganist Paper. You lose!")
+                outcome.textContent = "Unlucky Rock loses aganist Paper. You lose!"
                 computerScore++
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
             }
     
             else {
-                alert("Letsgoski! Rock wins aganist Scissors. You Win!")
+                outcome.textContent = "Letsgoski! Rock wins aganist Scissors. You Win!"
                 humanScore++
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
             }
         }
     
         if (humanSelection == "paper") {
             if (computerSelection == "rock") {
-                alert("Letsgoski! Paper wins aganist Rock. You Win!")
+                outcome.textContent = "Letsgoski! Paper wins aganist Rock. You Win!"
                 humanScore++
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
             }
             
             else if (computerSelection == "paper") {
-                alert("You Both played Paper, you draw!")
+                outcome.textContent = ("You Both played Paper, you draw!")
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
                 
             }
     
             else {
-                alert("Unlucky Paper loses aganist Scissors. You lose!")
+                outcome.textContent = "Unlucky Paper loses aganist Scissors. You lose!"
                 computerScore++
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
             }
         }
     
         if (humanSelection == "scissors") {
             if (computerSelection == "rock") {
-                alert("Unlucky Scissors loses aganist Rock. You lose!")
+                outcome.textContent = "Unlucky Scissors loses aganist Rock. You lose!"
                 computerScore++
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
             }
             
             else if (computerSelection == "paper") {
-                alert("Letsgoski! Scissors wins aganist Paper. You Win!")
+                outcome.textContent = "Letsgoski! Scissors wins aganist Paper. You Win!"
                 humanScore++
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
                 
             }
     
             else {
-                alert("You Both played Scissors, you draw!")
-                
+                outcome.textContent = "You Both played Scissors, you draw!"
+                human.textContent =  `Player : ${humanScore} `
+                computer.textContent = `Computer : ${computerScore} `
             }
         }
     
     }
 
-}
+
 
