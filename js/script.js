@@ -1,20 +1,10 @@
 
-function playGame() {
 
-    humanScore = 0
-    computerScore = 0
 
-    while (humanScore < 5 && computerScore < 5) {
-        playRound();
-    }
 
-    if (humanScore >= 5) {
-        alert("Congratulations! You won the game!");
-    } else {
-        alert("Computer wins. Better luck next time!");
-    }
 
-    
+
+  
     function playRound () {
 
         function getComputerChoice() {
@@ -49,7 +39,7 @@ function playGame() {
             if (computerSelection == "rock") {
                 alert("You Both played Rock, you draw!")
             }
-            else if (computerSelection =="paper") {
+            else if (computerSelection == "paper") {
                 alert("Unlucky Rock loses aganist Paper. You lose!")
                 computerScore++
             }
@@ -99,4 +89,3 @@ function playGame() {
 
 }
 
-playGame()
